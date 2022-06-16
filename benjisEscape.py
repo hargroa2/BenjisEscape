@@ -110,12 +110,12 @@ def gameOver():
     print("\n")
     print("You were captured... ")
     print("\n")
-    opts = ["y", "n"]
-    playAgain = input("Would you like to play again? y/n > ")
-    if playAgain.lower() == "y":
+    opts = ["yes", "no"]
+    playAgain = input("Would you like to play again? yes or no: > ")
+    if playAgain.lower() == "yes":
         titleScreen()
-    elif playAgain.lower() == "n":
-        print("Quitting")
+    elif playAgain.lower() == "no":
+        print("Exiting game")
         sys.exit()
     while playAgain.lower() not in opts:
         print("Unknown action, try again")
@@ -129,7 +129,7 @@ def mainMenu():
     if option.lower() == ("play"):
         setupGame()
     elif option.lower() == ("quit"):
-        print("Quitting")
+        print("Exiting game")
         sys.exit()
     while option.lower() not in ['play', 'quit']: #if command isn't play or quit, repeat
         print("Please enter a valid command: ")
@@ -140,13 +140,14 @@ def mainMenu():
             print("Quitting")
             sys.exit()
 
-def youWin():
+def youEscaped():
+    os.system('clear')
     print("                              ")
-    print("                              ")
+    print(".'.'.'.'.'.'.'.'.'.'.'.'.'.'.'.")
     print("##############################")
     print("#       YOU   ESCAPED!       #")
     print("##############################")
-    print("                              ")
+    print("'.'.'.'.'.'.'.'.'.'.'.'.'.'.'.'")
     print("                              ")
     end1 = "Congratulations! You are officially a free bearded dragon!\n"
     end2 = "Other bearded dragons will speak of your tales for centuries...\n"
@@ -157,6 +158,7 @@ def youWin():
         time.sleep(0.05)
 
     time.sleep(1.5)
+    print("                              ")
 
     for char in end2:
         sys.stdout.write(char)
@@ -165,19 +167,20 @@ def youWin():
     
     time.sleep(1.5)
     
-    opts = ["y", "n"]
-    playAgain = input("Would you like to play again? y/n > ")
-    if playAgain.lower() == "y":
-        titleScreen() #TITLE SCREEN CALL
+    opts = ["yes", "no"]
+    print("                              ")
+    playAgain = input("Would you like to play again? yes or no: > ")
+    if playAgain.lower() == "yes":
+        titleScreen()
         mainMenu()
-    elif playAgain.lower() == "n":
-        print("Quitting")
+    elif playAgain.lower() == "no":
+        print("Thanks for playing!")
         sys.exit()
     while playAgain.lower() not in opts:
         print("Unknown action, try again")
         playAgain = input("> ")
 
-# youWin()
+# youEscaped()
 
 ###### END DIALOGUE ###### COMMENT
 
@@ -201,8 +204,14 @@ def setupEndDialogue():
         time.sleep(0.05)
 
     time.sleep(1.5)
+
+    print("                              ")
+    print("                              ")
+    print("##############################")
+    time.sleep(1.5)
     
-    youWin()
+    
+    youEscaped()
 
 # setupEndDialogue()
 
@@ -246,19 +255,20 @@ def prompt3():
             print("==============================")
             action = input("> ")
             if action.lower() == 'bite':
-                benji.bite() # decHealth = timothy["health"] - self.attack
+                benji.bite() # decHealth = enemyDict["health"] - self.attack
                 print("==============================")
                 print(f"You bite Dad! He loses {benji.attack} health")
 
             elif action.lower() == 'run':
                 benji.run() # Prints and forfeits Benji's turn
+                print("==============================")
 
             elif action.lower() == 'scratch':
-                benji.scratch() # decHealth2 = timothy["health"] - self.attack
+                benji.scratch() # decHealth2 = enemyDict["health"] - self.attack
                 print("==============================")
                 print(f"You scratch Dad! He loses {benji.attack} health")
             elif action.lower() == 'quit':
-                print("Quitting")
+                print("Exiting game")
                 sys.exit()
             while action.lower() not in moves:
                 print("Unknown action, try again")
@@ -279,14 +289,16 @@ def setupPart3():
     for char in script1:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(0.05)
 
     time.sleep(1)
 
     for char in script2:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(0.05)
+    
+    time.sleep(1)
         
     prompt3()
 
@@ -337,6 +349,7 @@ def prompt2():
                 print(f"You bite Mom! She loses {benji.attack} health")
 
             elif action.lower() == 'run':
+                print("==============================")
                 benji.run() # Prints and forfeits Benji's turn
 
             elif action.lower() == 'scratch':
@@ -344,7 +357,7 @@ def prompt2():
                 print("==============================")
                 print(f"You scratch Mom! She loses {benji.attack} health")
             elif action.lower() == 'quit':
-                print("Quitting")
+                print("Exiting game")
                 sys.exit()
             while action.lower() not in moves:
                 print("Unknown action, try again")
@@ -357,24 +370,74 @@ def prompt2():
 
 # prompt2()
 
-###### PART 2 ###### COMMENT
+###### GAME DIALOGUE/CONTENT PART 2 ###### COMMENT
 
 def setupPart2():
-    text1 = "You have made it to part 2!\n"
-    text2 = "Here comes the next battle: \n"
+    text1 = "You run past Timothy while he's busy crying and waddle down the hallway.!\n"
+    text2 = "It sounds quiet...\n"
+    text3 = "... Too quiet.\n"
+    text4 = "You make your way to what looks like the dining room, then suddenly stop in your tracks.\n"
+    text5 = "Timothy's mother, a larger and more flabby version of a human, is standing there, staring at you.\n"
+    text6 = "You freeze. You aren't sure what to do.\n "
+    text7 = "She immediately stampedes towards you like a bull with a look of aggravation!\n"
+    text8 = "Time to fight...!\n"
     print("\n")
     print("\n")
     for char in text1:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(0.05)
 
     time.sleep(1)
 
     for char in text2:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.2)
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    
+    for char in text3:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+
+    for char in text4:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+
+    for char in text5:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+
+    for char in text6:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+
+    for char in text7:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+
+    for char in text8:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
     
     prompt2()
 # setupPart2()
@@ -415,16 +478,15 @@ def prompt():
                 benji.bite()
                 print("==============================")
                 print(f"You bite Timothy! He loses {benji.attack} health")
-                # if timHealth > 0:
-                #     print(f"It's Timothy's turn. He grabs you and hurts you by {timAttack} health!")
             elif action.lower() == 'run':
                 benji.run()
+                print("==============================")
             elif action.lower() == 'scratch':
                 benji.scratch()
                 print("==============================")
                 print(f"You scratch Timothy! He loses {benji.attack} health")
             elif action.lower() == 'quit':
-                print("Quitting")
+                print("Exiting game")
                 sys.exit()
             while action.lower() not in moves:
                 print("Unknown action, try again")
@@ -436,97 +498,127 @@ def prompt():
 
 # prompt()
 
-
-
-
-
 ###### GAME DIALOG/CONTENT PART 1 ###### COMMENT
 
 def setupGame():
     os.system('clear')
-    # question1 = input("What's your name?\n")
-    # for char in question1:
-    #     sys.stdout.write(char)
-    #     sys.stdout.flush()
-    #     time.sleep(0.05)
-    speech1 = "You are a young bearded dragon... \n"
-    speech2 = "You escaped the tank. Your journey out of this dungeon of a home starts here.\n"
-    speech3 = "Watch out for Timothy...\n"
-    speech4 = "... And his family. \n"
+
+    speech1 = "You are Benji, a young but determined bearded dragon that was just adopted by a loving family.\n"
+    speech2 = "You came home in a small kennel only to find out that the family’s 6 year old child named Timothy is your new owner.\n"
+    speech3 = "You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you!\n"
+    speech4 = "Use your wits to escape Timothy and his family’s home by defeating each of them in battle. It's the only way to survive!\n"
+    speech5 = "Watch out for Timothy...\n"
+    speech6 = "... And his family. \n"
+    print("                              ")
+
+    time.sleep(1.5)
     
     for char in speech1:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
+    
+    time.sleep(1.5)
+    print("                              ")
+
     for char in speech2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
+    
+    time.sleep(1.5)
+    print("                              ")
+
     for char in speech3:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.1)
+        time.sleep(0.05)
+
+    time.sleep(1.5)
+    print("                              ")
+
     for char in speech4:
         sys.stdout.write(char)
         sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1.5)
+    print("                              ")
+
+    for char in speech5:
+        sys.stdout.write(char)
+        sys.stdout.flush()
         time.sleep(0.1)
+    
+    time.sleep(1.5)
+    print("                              ")
+
+    for char in speech6:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    
+    time.sleep(1.5)
+    print("                              ")
 
     dialog1 = "You are in Timothy's room inside of a glass tank.\n"
-    dialog2 = "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs or vegetables today. This kid is going to starve you to death!\n"
-    
+    dialog2 = "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs today. This kid is going to starve you to death!\n"
     dialog3 = "You've finally decided. You are officially going to escape. For good. \n"
-    
-    # dialog4 = "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.\n"
-    
-    # dialog5 = "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!\n"
-    
-    # dialog6 = "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!\n"
+    dialog4 = "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.\n"
+    dialog5 = "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!\n"
+    dialog6 = "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!\n"
     
     dialog7 = "Time to fight...!\n"
-    print("==============================")
-
-
+    print("##############################")
+    print("                              ")
+    
     for char in dialog1:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.08)
+        time.sleep(0.05)
     
     time.sleep(1.5)
+    print("                              ")
 
     for char in dialog2:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.08)
+        time.sleep(0.05)
     
     time.sleep(1.5)
+    print("                              ")
 
     for char in dialog3:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.08)
+        time.sleep(0.05)
     
     time.sleep(1.5)
+    print("                              ")
 
-    # for char in dialog4:
-    #     sys.stdout.write(char)
-    #     sys.stdout.flush()
-    #     time.sleep(0.08)
+    for char in dialog4:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
     
-    # time.sleep(1.5)
+    time.sleep(1.5)
+    print("                              ")
 
-    # for char in dialog5:
-    #     sys.stdout.write(char)
-    #     sys.stdout.flush()
-    #     time.sleep(0.08)
+    for char in dialog5:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
     
-    # time.sleep(1.5)
+    time.sleep(1.5)
+    print("                              ")
 
-    # for char in dialog6:
-    #     sys.stdout.write(char)
-    #     sys.stdout.flush()
-    #     time.sleep(0.08)
+    for char in dialog6:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
     
-    # time.sleep(1.5)
+    time.sleep(1.5)
+    print("                              ")
 
     for char in dialog7:
         sys.stdout.write(char)
@@ -534,6 +626,7 @@ def setupGame():
         time.sleep(0.2)
     
     time.sleep(1.5)
+    print("                              ")
 
     
 
