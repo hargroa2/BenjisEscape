@@ -7,17 +7,17 @@ import random
 ##### ENEMY ATTRIBUTES ######
 timothy = {
     "name": "Timothy",
-    "health": 30,
+    "health": 30
 }
 
 mom = {
     "name":  "Mom",
-    "health": 35,
+    "health": 35
 }
 
 dad = {
     "name": "Dad",
-    "health": 40,
+    "health": 40
 }
 
 ##### BENJI CLASS ###### 
@@ -33,7 +33,6 @@ class Benji:
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.2)
-
         time.sleep(0.5)
     
     def run(self):
@@ -43,7 +42,6 @@ class Benji:
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.05)
-
         time.sleep(0.5)
     
     def scratch(self):
@@ -53,7 +51,6 @@ class Benji:
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.2)
-
         time.sleep(0.5)
 
 benji = Benji()
@@ -88,7 +85,6 @@ def titleScreen():
 
 
 ###### GAME OVER ###### 
-# This shows if the prompt() loop's condition (Benji is above 0 health) is true
 
 def gameOver():
     print("##############################")
@@ -116,7 +112,7 @@ def mainMenu():
     elif option.lower() == ("quit"):
         print("Exiting game")
         sys.exit()
-    while option.lower() not in ['play', 'quit']: #if command isn't play or quit, repeat
+    while option.lower() not in ['play', 'quit']:
         print("Please enter a valid command: ")
         option = input("> ")
         if option.lower() == ("play"):
@@ -142,15 +138,12 @@ def youEscaped():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1.5)
     print("                              ")
-
     for char in end2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     
     opts = ["yes", "no"]
@@ -181,31 +174,24 @@ def setupEndDialogue():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1.5)
     print("                              ")
-
     for char in script2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1.5)
     print("                              ")
-
     for char in script3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1.5)
     print("                              ")
-
     for char in script4:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(4)
     youEscaped()
 
@@ -255,7 +241,7 @@ def prompt3():
             benji.health = hurtBenji
 
         elif action.lower() == 'run':
-            benji.run() # Prints and forfeits Benji's turn
+            benji.run()
             print("==============================")
 
         elif action.lower() == 'scratch':
@@ -294,15 +280,12 @@ def setupPart3():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1)
     print("                              ")
-
     for char in script2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
 
     opts = ["yes", "no"]
@@ -335,56 +318,41 @@ def setupPart3():
 
     timeToFight = "Time to fight...!\n"
     print("                              ")
-    
     for char in letsMoveOn:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in script3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in script4:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in script5:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in script6:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-    
     for char in timeToFight:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.2)
-    
     time.sleep(1)
-
-
-
     prompt3()
 
 ###### PROMPT TO FIGHT MOM ###### 
@@ -431,7 +399,7 @@ def prompt2():
 
         elif action.lower() == 'run':
             print("==============================")
-            benji.run() # Prints and forfeits Benji's turn
+            benji.run()
 
         elif action.lower() == 'scratch':
             benji.scratch() 
@@ -474,66 +442,51 @@ def setupPart2():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1)
     print("                              ")
-
     for char in text2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-    
     for char in text3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in text4:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in text5:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in text6:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in text7:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1)
     print("                              ")
-
     for char in text8:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.2)
-    
     time.sleep(1)
     print("                              ")
-    
+
     prompt2()
 
 ###### PROMPT TO FIGHT TIMOTHY ###### 
@@ -574,7 +527,7 @@ def prompt():
             benji.health = hurtBenji
 
         elif action.lower() == 'run':
-            benji.run() # Prints and forfeits Benji's turn
+            benji.run()
             print("==============================")
         elif action.lower() == 'scratch':
             benji.scratch()
@@ -602,7 +555,6 @@ def prompt():
 
 def setupGame():
     os.system('clear')
-
     speech1 = "You are Benji, a young but determined bearded dragon that was just adopted by a loving family.\n"
     speech2 = "You came home in a small kennel only to find out that the family’s 6 year old child named Timothy is your new owner.\n"
     speech3 = "You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you!\n"
@@ -610,54 +562,41 @@ def setupGame():
     speech5 = "Watch out for Timothy...\n"
     speech6 = "... And his family. \n"
     print("                              ")
-
     time.sleep(1.5)
-    
     for char in speech1:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in speech2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in speech3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-
     time.sleep(1.5)
     print("                              ")
-
     for char in speech4:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in speech5:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.1)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in speech6:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.1)
-    
     time.sleep(1.5)
     print("                              ")
 
@@ -671,79 +610,50 @@ def setupGame():
     dialog7 = "Time to fight...!\n"
     print("##############################")
     print("                              ")
-    
     for char in dialog1:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog2:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog3:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog4:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog5:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog6:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
-    
     time.sleep(1.5)
     print("                              ")
-
     for char in dialog7:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.2)
-    
     time.sleep(1.5)
     print("                              ")
 
 titleScreen()
-mainMenu() # When you click play, it goes to the setupGame()
+mainMenu()
 prompt()
-
 titleScreen()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
