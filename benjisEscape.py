@@ -38,7 +38,7 @@ class Benji:
         time.sleep(0.5)
     
     def run(self):
-        runMessage = "You try to run, but they block your way!"
+        runMessage = "You try to run, but they block your way!\n"
         print("                              ")
         for char in runMessage:
             sys.stdout.write(char)
