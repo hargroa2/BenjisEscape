@@ -21,7 +21,7 @@ Welcome to my first terminal-based RPG project made in python!
 - Once you do that, simply paste this text into the terminal and press enter:
   `python3 benjisEscape.py`
 
-If you want to find out more about this project, take a look at the article that I wrote on [dev.to]().
+If you want to find out more about this project, take a look at the article that I wrote on [dev.to](https://dev.to/hargroa2/i-made-an-rpg-game-in-python-for-the-first-time-3i0k).
 
 ### How To Play: Controls
 
