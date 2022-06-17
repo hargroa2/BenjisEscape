@@ -25,7 +25,7 @@ If you want to find out more about this project, take a look at the article that
 
 ### How To Play: Controls
 
-This game is a story-based RPG with turn-based battle elements. There will be prompts which will ask you to enter a word out of the options above or by your cursor in the Terminal. Simply type that word and it will proceed with that action.
+This game is an RPG with a story line and turn-based battle elements. There will be prompts which will ask you to enter a word out of the options above or by your cursor in the Terminal. Simply type that word and it will proceed with that action.
 
 If you type any other command outside of the options that the game gives you, it will tell you that it is invalid and you will have to enter an option that they tell you to give.
 
