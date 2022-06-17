@@ -137,20 +137,17 @@ def youEscaped():
     print("##############################")
     print("'.'.'.'.'.'.'.'.'.'.'.'.'.'.'.'")
     print("                              ")
-    end1 = "Congratulations! You are officially a free bearded dragon!\n"
-    end2 = "Other bearded dragons will speak of your tales for centuries...\n"
 
-    for char in end1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in end2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
+    endList = ["Congratulations! You are officially a free bearded dragon!", "Other bearded dragons will speak of your tales for centuries..."]
+
+    for i in range(len(endList)):
+        print(" ")
+        for j in endList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
     
     opts = ["yes", "no"]
     print("                              ")
@@ -164,6 +161,7 @@ def youEscaped():
     while playAgain.lower() not in opts:
         print("Unknown action, try again")
         playAgain = input("> ")
+
 
 ###### END DIALOGUE ###### 
 
@@ -479,8 +477,9 @@ def prompt():
 def setupGame():
     os.system('clear')
     speechList = ["You are Benji, a young but determined bearded dragon that was just adopted by a loving family.", "You came home in a small kennel only to find out that the family’s 6 year old child named Timothy is your new owner.", "You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you!", "Use your wits to escape Timothy and his family’s home by defeating each of them in battle. It's the only way to survive!"]
-    speech5 = "Watch out for Timothy...\n"
-    speech6 = "... And his family. \n"
+    # speech5 = "Watch out for Timothy...\n"
+    # speech6 = "... And his family. \n"
+    speechList2 = ["Watch out for Timothy...", "... And his family."]
     print("                              ")
     time.sleep(1.5)
 
@@ -494,28 +493,37 @@ def setupGame():
         print(" ")
     print("                              ")
 
-    for char in speech5:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.1)
-    time.sleep(1.5)
-    print("                              ")
-    for char in speech6:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.1)
-    time.sleep(1.5)
-    print("                              ")
+    for i in range(len(speechList2)):
+        print(" ")
+        for j in speechList2[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
+
+    # for char in speech5:
+    #     sys.stdout.write(char)
+    #     sys.stdout.flush()
+    #     time.sleep(0.1)
+    # time.sleep(1.5)
+    # print("                              ")
+    # for char in speech6:
+    #     sys.stdout.write(char)
+    #     sys.stdout.flush()
+    #     time.sleep(0.1)
+    # time.sleep(1.5)
+    # print("                              ")
     
-    dialogList = ["You are in Timothy's room inside of a glass tank.", "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs today. This kid is going to starve you to death!", "You've finally decided. You are officially going to escape. For good. ", "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.", "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!", "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!"]
+    dialogueList = ["You are in Timothy's room inside of a glass tank.", "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs today. This kid is going to starve you to death!", "You've finally decided. You are officially going to escape. For good. ", "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.", "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!", "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!"]
     print("                              ")
     dialog7 = "Time to fight...!\n"
     print("##############################")
     print("                              ")
 
-    for i in range(len(dialogList)):
+    for i in range(len(dialogueList)):
         print(" ")
-        for j in dialogList[i]:
+        for j in dialogueList[i]:
             sys.stdout.write(j)
             sys.stdout.flush()
             time.sleep(0.05)
