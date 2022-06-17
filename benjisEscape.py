@@ -1,79 +1,66 @@
-#Story: You are Benji, a young but determined bearded dragon that was just adopted by a loving family. You came home in your kennel only to find out that the family’s 6 year old child named Timothy is your new owner. You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you! Use your wits to escape Timothy and his family’s home by defeating each of them in battle. It’s the only way to survive!
-
-# FEATURES: REFERENCE
-
-# 1. Benji will escape tank and have to fight Timothy first in his bedroom. Turn based match with health deduction by attacks
-
-# 2. Story asks you what would you like to do next, you will run into mom in the dining room
-
-# 3. Story asks you what you would like to do, living room with front door will lead to dad as final boss
-
-# 4. If your health depletes to 0, it's game over and are taken back to the tank. If family member is at 0, they faint or cry/scream whatever
-
-# 5. If you die you will be asked if you want to play again. If not, exit the program
-
-# =====================================
 
 import time
 import sys
 import os
 import random
 
-##### ENEMY ATTRIBUTES ###### COMMENT
+##### ENEMY ATTRIBUTES ######
 timothy = {
     "name": "Timothy",
-    "health": 10,
-    "attack": random.randint(0, 10)
+    "health": 30,
 }
 
 mom = {
     "name":  "Mom",
-    "health": 10,
-    "attack": random.randint(0, 10)
+    "health": 35,
 }
 
 dad = {
     "name": "Dad",
-    "health": 10,
-    "attack": random.randint(0, 10)
+    "health": 40,
 }
 
-##### BENJI CLASS ###### COMMENT
+##### BENJI CLASS ###### 
 class Benji:
     def __init__(self):
         self.name = "Benji"
         self.health = 50
-        self.attack = random.randint(5, 10)
     
     def bite(self):
-        decHealth = timothy["health"] - self.attack
-        timothy["health"] = decHealth
-        #bite will decrease using self.attack from enemy's health value in dict
-        decHealthMom = mom["health"] - self.attack
-        mom["health"] = decHealthMom
-        
-        decHealthDad = dad["health"] - self.attack
-        dad["health"] = decHealthDad
+        bite = "C H O M P . . . !\n"
+        print("                              ")
+        for char in bite:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.2)
+
+        time.sleep(0.5)
     
     def run(self):
-        print("You try to run, but they block your way!")
+        runMessage = "You try to run, but they block your way!"
+        print("                              ")
+        for char in runMessage:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.05)
+
+        time.sleep(0.5)
     
     def scratch(self):
-        decHealth2 = timothy["health"] - self.attack
-        timothy["health"] = decHealth2
-        #scratch will decrease using self.attack points from Timothy's health value in dict
-        decHealthMom2 = mom["health"] - self.attack
-        mom["health"] = decHealthMom2
+        scratch = "S C R A T C H . . . !\n"
+        print("                              ")
+        for char in scratch:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.2)
 
-        decHealthDad2 = dad["health"] - self.attack
-        dad["health"] = decHealthDad2
+        time.sleep(0.5)
 
 benji = Benji()
 
-###### TITLE SCREEN VISUALS ###### COMMENT
+###### TITLE SCREEN VISUALS ###### 
 def titleScreen():
     os.system('clear') # Moves screen up
-    # print(chr(27) + "[2J") # This is for if your OS is not mac
     print("##############################")
     print("""
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣢⣭⠓⣶⣶⣯⣽⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -100,7 +87,7 @@ def titleScreen():
     print('        ©2022 Amanda H.       ')
 
 
-###### GAME OVER ###### COMMENT
+###### GAME OVER ###### 
 # This shows if the prompt() loop's condition (Benji is above 0 health) is true
 
 def gameOver():
@@ -115,15 +102,13 @@ def gameOver():
     if playAgain.lower() == "yes":
         titleScreen()
     elif playAgain.lower() == "no":
-        print("Exiting game")
+        print("Thanks for playing!")
         sys.exit()
     while playAgain.lower() not in opts:
         print("Unknown action, try again")
         playAgain = input("> ")
 
-# gameOver()
-
-###### MENU LOGIC ###### COMMENT
+###### MENU LOGIC ###### 
 def mainMenu():
     option = input("> ")
     if option.lower() == ("play"):
@@ -142,6 +127,7 @@ def mainMenu():
 
 def youEscaped():
     os.system('clear')
+    
     print("                              ")
     print(".'.'.'.'.'.'.'.'.'.'.'.'.'.'.'.")
     print("##############################")
@@ -180,16 +166,16 @@ def youEscaped():
         print("Unknown action, try again")
         playAgain = input("> ")
 
-# youEscaped()
-
-###### END DIALOGUE ###### COMMENT
+###### END DIALOGUE ###### 
 
 def setupEndDialogue():
     print("##############################")
     print("                              ")
     print("                              ")
-    script1 = "You have made it to the end!\n"
-    script2 = "The whole family is gone and you survived! \n"
+    script1 = "Dad lunges towards you, his body clumsily reaching out, weak from all of the red marks that you inflicted.\n"
+    script2 = "You manage to dodge out of the way and the Dad falls onto the floor like a skyscraper crashing down before your eyes.\n"
+    script3 = "You did it... You actually did it. You defeated all 3 family members!\n"
+    script4 = "You run out the front door, waddling with excitement knowing that you'll be eating all of the worms that you desire!\n"
     
     for char in script1:
         sys.stdout.write(char)
@@ -197,6 +183,7 @@ def setupEndDialogue():
         time.sleep(0.05)
 
     time.sleep(1.5)
+    print("                              ")
 
     for char in script2:
         sys.stdout.write(char)
@@ -204,94 +191,112 @@ def setupEndDialogue():
         time.sleep(0.05)
 
     time.sleep(1.5)
+    print("                              ")
 
-    print("                              ")
-    print("                              ")
-    print("##############################")
+    for char in script3:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+
     time.sleep(1.5)
-    
-    
+    print("                              ")
+
+    for char in script4:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+
+    time.sleep(4)
     youEscaped()
 
-# setupEndDialogue()
 
-
-###### PROMPT TO FIGHT DAD ###### COMMENT
+###### PROMPT TO FIGHT DAD ###### 
 
 moves = ['bite', 'run', 'scratch', 'quit']
 
 def prompt3():
-    firstFight3 = False
-    dad["health"] = 10
+    dad["health"] = 40
     benji.health = 50
-    while not firstFight3:
-        while benji.health > 0:
 
-            dadName = dad["name"]
-            dadHealth = dad["health"]
-            dadAttack = dad["attack"]
+    while benji.health > 0:
 
-            if dadHealth > 0 and firstFight3 == True:
-                        print(f"It's Mom's turn. She grabs you and hurts you by {dadAttack} health!")
-            elif dadHealth <= 0:
-                    print("Dad flees!")
-            firstFight = True
+        dadName = dad["name"]
+        dadHealth = dad["health"]
+        randomNum = random.randint(1, 10)
 
-            if dadHealth <= 0:
-                setupEndDialogue()
-                sys.exit()
-            print("                              ")
-            print("                              ")
-            print(f"{benji.name}'s Health: {benji.health}")
-            print(f"{dadName}'s Health: {dadHealth}")
-            print("\n" + "==============================")
-            print("     What would you like to do?")
-            print("Please type one of the four options: ")
+        if dadHealth <= 0:
+            setupEndDialogue()
+            sys.exit()
+        print("                              ")
+        print("                              ")
+        print(f"{benji.name}'s Health: {benji.health}")
+        print(f"{dadName}'s Health: {dadHealth}")
+        print("\n" + "==============================")
+        print("     What would you like to do?")
+        print("Please type one of the four options: ")
 
-            print("         --   bite   --")
-            print("         --   run    --")
-            print("         --  scratch --")
-            print("         --   quit   --")
+        print("         --   bite   --")
+        print("         --   run    --")
+        print("         --  scratch --")
+        print("         --   quit   --")
+        print("==============================")
+        action = input("> ")
+
+        if action.lower() == 'bite':
+            benji.bite() 
             print("==============================")
-            action = input("> ")
-            if action.lower() == 'bite':
-                benji.bite() # decHealth = enemyDict["health"] - self.attack
-                print("==============================")
-                print(f"You bite Dad! He loses {benji.attack} health")
+            print(f"You bite Dad! He loses {randomNum} health")
+            decHealth5 = dad["health"] - randomNum
+            dad["health"] = decHealth5
+            randomNum2 = random.randint(1, 10)
 
-            elif action.lower() == 'run':
-                benji.run() # Prints and forfeits Benji's turn
-                print("==============================")
-
-            elif action.lower() == 'scratch':
-                benji.scratch() # decHealth2 = enemyDict["health"] - self.attack
-                print("==============================")
-                print(f"You scratch Dad! He loses {benji.attack} health")
-            elif action.lower() == 'quit':
-                print("Exiting game")
-                sys.exit()
-            while action.lower() not in moves:
-                print("Unknown action, try again")
-                action = input("> ")
-
-
-            hurtBenji = benji.health - dadAttack
+            print(f"It's Dad's turn. He grabs you and hurts you by {randomNum2} health!")
+            hurtBenji = benji.health - randomNum2
             benji.health = hurtBenji
-        gameOver()
-# prompt3()
 
-###### GAME DIALOG/CONTENT PART 3 ###### COMMENT
+        elif action.lower() == 'run':
+            benji.run() # Prints and forfeits Benji's turn
+            print("==============================")
+
+        elif action.lower() == 'scratch':
+            benji.scratch()
+            print("==============================")
+            print(f"You scratch Dad! He loses {randomNum} health")
+
+            decHealth6 = dad["health"] - randomNum
+            dad["health"] = decHealth6
+            randomNum3 = random.randint(1, 10)
+
+            print(f"It's Dad's turn. He grabs you and hurts you by {randomNum3} health!")
+            hurtBenji = benji.health - randomNum3
+            benji.health = hurtBenji
+
+        elif action.lower() == 'quit':
+            print("Exiting game")
+            sys.exit()
+        while action.lower() not in moves:
+            print("Unknown action, try again")
+            action = input("> ")
+
+    gameOver()
+
+
+###### GAME DIALOG/CONTENT PART 3 ###### 
 def setupPart3():
-    script1 = "You have made it to part 3!\n"
-    script2 = "Here comes the final battle: \n"
-    print("\n")
-    print("\n")
+    print("##############################")
+    print("                              ")
+    print("                              ")
+    script1 = "Mom angrily throws a tantrum in frustration at how many red marks she has and stomps out the front door of the house.\n"
+    script2 = "You see that she forgets to close the front door and the house is wide open. Now is your chance! \n"
+    
+
     for char in script1:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
 
     time.sleep(1)
+    print("                              ")
 
     for char in script2:
         sys.stdout.write(char)
@@ -299,81 +304,164 @@ def setupPart3():
         time.sleep(0.05)
     
     time.sleep(1)
-        
+
+    opts = ["yes", "no"]
+    print("                              ")
+    playAgain = input("Run to the door? yes or no: > ")
+    if playAgain.lower() == "yes":
+        pass
+    elif playAgain.lower() == "no":
+        print("                              ")
+        playAgain2 = input("Oh... Um... You sure? yes or no: > ")
+        if playAgain2.lower() == "yes":
+            os.system('clear')
+            print("                              ")
+            print("Oh... Okay. Well I guess you were wanting to be a pet anyways.")
+            print("                              ")
+            gameOver()
+        elif playAgain2.lower() == "no":
+            pass
+    while playAgain.lower() not in opts:
+        print("Unknown action, try again")
+        playAgain = input("> ")
+
+
+    letsMoveOn = "Good. I'm glad! Freedom here we come.\n"
+
+    script3 = "You waddle towards the front door as fast as your little reptilian legs can carry you.\n"
+    script4 = "You feel like you're finally home free... Until you see a massive figure step in front of the doorway!\n"
+    script5 = "The father, a massive and muscular giant, is blocking your ticket to freedom!\n"
+    script6 = "Let's do this. This is the moment that you've been waiting for.\n"
+
+    timeToFight = "Time to fight...!\n"
+    print("                              ")
+    
+    for char in letsMoveOn:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    print("                              ")
+
+    for char in script3:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    print("                              ")
+
+    for char in script4:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    print("                              ")
+
+    for char in script5:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    print("                              ")
+
+    for char in script6:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    
+    time.sleep(1)
+    print("                              ")
+    
+    for char in timeToFight:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.2)
+    
+    time.sleep(1)
+
+
+
     prompt3()
 
-
-# setupPart3()
-
-
-
-###### PROMPT TO FIGHT MOM ###### COMMENT
+###### PROMPT TO FIGHT MOM ###### 
 
 def prompt2():
-    firstFight2 = False
-    mom["health"] = 10
+    mom["health"] = 35
     benji.health = 50
-    while not firstFight2:
-        while benji.health > 0:
+    
+    while benji.health > 0:
 
-            momName = mom["name"]
-            momHealth = mom["health"]
-            momAttack = mom["attack"]
+        momName = mom["name"]
+        momHealth = mom["health"]
+        randNumber = random.randint(1, 10)
 
-            if momHealth > 0 and firstFight2 == True:
-                        print(f"It's Mom's turn. She grabs you and hurts you by {momAttack} health!")
-            elif momHealth <= 0:
-                    print("Mom flees!")
-            firstFight = True
+        if momHealth <= 0:
+            setupPart3()
+            sys.exit()
+        print("                              ")
+        print("                              ")
+        print(f"{benji.name}'s Health: {benji.health}")
+        print(f"{momName}'s Health: {momHealth}")
+        print("\n" + "==============================")
+        print("     What would you like to do?")
+        print("Please type one of the four options: ")
 
-            if momHealth <= 0:
-                setupPart3()
-                sys.exit()
-            print("                              ")
-            print("                              ")
-            print(f"{benji.name}'s Health: {benji.health}")
-            print(f"{momName}'s Health: {momHealth}")
-            print("\n" + "==============================")
-            print("     What would you like to do?")
-            print("Please type one of the four options: ")
+        print("         --   bite   --")
+        print("         --   run    --")
+        print("         --  scratch --")
+        print("         --   quit   --")
+        print("==============================")
+        action = input("> ")
 
-            print("         --   bite   --")
-            print("         --   run    --")
-            print("         --  scratch --")
-            print("         --   quit   --")
+        if action.lower() == 'bite':
+            benji.bite()
             print("==============================")
-            action = input("> ")
-            if action.lower() == 'bite':
-                benji.bite() # decHealth = timothy["health"] - self.attack
-                print("==============================")
-                print(f"You bite Mom! She loses {benji.attack} health")
+            print(f"You bite Mom! She loses {randNumber} health")
+            decHealth3 = mom["health"] - randNumber
+            mom["health"] = decHealth3
+            randNumber2 = random.randint(1, 10)
 
-            elif action.lower() == 'run':
-                print("==============================")
-                benji.run() # Prints and forfeits Benji's turn
-
-            elif action.lower() == 'scratch':
-                benji.scratch() # decHealth2 = timothy["health"] - self.attack
-                print("==============================")
-                print(f"You scratch Mom! She loses {benji.attack} health")
-            elif action.lower() == 'quit':
-                print("Exiting game")
-                sys.exit()
-            while action.lower() not in moves:
-                print("Unknown action, try again")
-                action = input("> ")
-
-
-            hurtBenji = benji.health - momAttack
+            print(f"It's Mom's turn. He grabs you and hurts you by {randNumber2} health!")
+            hurtBenji = benji.health - randNumber2
             benji.health = hurtBenji
-        gameOver()
 
-# prompt2()
+        elif action.lower() == 'run':
+            print("==============================")
+            benji.run() # Prints and forfeits Benji's turn
 
-###### GAME DIALOGUE/CONTENT PART 2 ###### COMMENT
+        elif action.lower() == 'scratch':
+            benji.scratch() 
+            print("==============================")
+            print(f"You scratch Mom! She loses {randNumber} health")
+            
+            decHealth4 = mom["health"] - randNumber
+            mom["health"] = decHealth4
+            randNumber3 = random.randint(1, 10)
+
+            print(f"It's Mom's turn. She grabs you and hurts you by {randNumber3} health!")
+            hurtBenji = benji.health - randNumber3
+            benji.health = hurtBenji
+
+        elif action.lower() == 'quit':
+            print("Exiting game")
+            sys.exit()
+        while action.lower() not in moves:
+            print("Unknown action, try again")
+            action = input("> ")
+
+    gameOver()
+
+###### GAME DIALOGUE/CONTENT PART 2 ###### 
 
 def setupPart2():
-    text1 = "You run past Timothy while he's busy crying and waddle down the hallway.!\n"
+    print("##############################")
+    print("                              ")
+    print("                              ")
+    text1 = "You run past Timothy while he's busy crying and waddle down the hallway.\n"
     text2 = "It sounds quiet...\n"
     text3 = "... Too quiet.\n"
     text4 = "You make your way to what looks like the dining room, then suddenly stop in your tracks.\n"
@@ -381,14 +469,14 @@ def setupPart2():
     text6 = "You freeze. You aren't sure what to do.\n "
     text7 = "She immediately stampedes towards you like a bull with a look of aggravation!\n"
     text8 = "Time to fight...!\n"
-    print("\n")
-    print("\n")
+
     for char in text1:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.05)
 
     time.sleep(1)
+    print("                              ")
 
     for char in text2:
         sys.stdout.write(char)
@@ -396,6 +484,7 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
     
     for char in text3:
         sys.stdout.write(char)
@@ -403,6 +492,7 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
 
     for char in text4:
         sys.stdout.write(char)
@@ -410,6 +500,7 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
 
     for char in text5:
         sys.stdout.write(char)
@@ -417,6 +508,7 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
 
     for char in text6:
         sys.stdout.write(char)
@@ -424,6 +516,7 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
 
     for char in text7:
         sys.stdout.write(char)
@@ -431,74 +524,81 @@ def setupPart2():
         time.sleep(0.05)
     
     time.sleep(1)
+    print("                              ")
 
     for char in text8:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(0.2)
     
     time.sleep(1)
+    print("                              ")
     
     prompt2()
-# setupPart2()
 
-###### PROMPT TO FIGHT TIMOTHY ###### COMMENT
+###### PROMPT TO FIGHT TIMOTHY ###### 
 
 def prompt():
-    firstFight = False
-    while not firstFight:
-        while benji.health > 0:
-            timName = timothy["name"]
-            timHealth = timothy["health"]
-            timAttack = timothy["attack"]
-            
-            if timHealth > 0 and firstFight == True:
-                    print(f"It's Timothy's turn. He grabs you and hurts you by {timAttack} health!")
-            elif timHealth <= 0:
-                print("Timothy flees!")
-            firstFight = True
-            
-            if timHealth <= 0:
-                setupPart2()
-                sys.exit()
-            print("\n")
-            print(f"{benji.name}'s Health: {benji.health}")
-            print(f"{timName}'s Health: {timHealth}")
-            print("\n" + "==============================")
-            print("     What would you like to do?")
-            print("Please type one of the four options: ")
 
-            print("         --   bite   --")
-            print("         --   run    --")
-            print("         --  scratch --")
-            print("         --   quit   --")
+    while benji.health > 0:
+        timName = timothy["name"]
+        timHealth = timothy["health"]
+        randNum = random.randint(1, 10)
+            
+        if timHealth <= 0:
+            setupPart2()
+            sys.exit()
+        print("\n")
+        print(f"{benji.name}'s Health: {benji.health}")
+        print(f"{timName}'s Health: {timHealth}")
+        print("\n" + "==============================")
+        print("     What would you like to do?")
+        print("Please type one of the four options: ")
+
+        print("         --   bite   --")
+        print("         --   run    --")
+        print("         --  scratch --")
+        print("         --   quit   --")
+        print("==============================")
+        action = input("> ")
+        if action.lower() == 'bite':
+            benji.bite()
             print("==============================")
-            action = input("> ")
-            if action.lower() == 'bite':
-                benji.bite()
-                print("==============================")
-                print(f"You bite Timothy! He loses {benji.attack} health")
-            elif action.lower() == 'run':
-                benji.run()
-                print("==============================")
-            elif action.lower() == 'scratch':
-                benji.scratch()
-                print("==============================")
-                print(f"You scratch Timothy! He loses {benji.attack} health")
-            elif action.lower() == 'quit':
-                print("Exiting game")
-                sys.exit()
-            while action.lower() not in moves:
-                print("Unknown action, try again")
-                action = input("> ")
+            print(f"You bite Timothy! He loses {randNum} health")
+            decHealth = timothy["health"] - randNum
+            timothy["health"] = decHealth
+            randNum2 = random.randint(1, 10)
 
-            hurtBenji = benji.health - timAttack
+            print(f"It's Timothy's turn. He grabs you and hurts you by {randNum2} health!")
+            hurtBenji = benji.health - randNum2
             benji.health = hurtBenji
-        gameOver()
 
-# prompt()
+        elif action.lower() == 'run':
+            benji.run() # Prints and forfeits Benji's turn
+            print("==============================")
+        elif action.lower() == 'scratch':
+            benji.scratch()
+            print("==============================")
+            print(f"You scratch Timothy! He loses {randNum} health")
 
-###### GAME DIALOG/CONTENT PART 1 ###### COMMENT
+            decHealth2 = timothy["health"] - randNum
+            timothy["health"] = decHealth2
+            randNum3 = random.randint(1, 10)
+
+            print(f"It's Timothy's turn. He grabs you and hurts you by {randNum3} health!")
+            hurtBenji = benji.health - randNum3
+            benji.health = hurtBenji
+
+        elif action.lower() == 'quit':
+            print("Exiting game")
+            sys.exit()
+        while action.lower() not in moves:
+            print("Unknown action, try again")
+            action = input("> ")
+                
+    gameOver()
+
+###### GAME DIALOG/CONTENT PART 1 ###### 
 
 def setupGame():
     os.system('clear')
@@ -628,18 +728,11 @@ def setupGame():
     time.sleep(1.5)
     print("                              ")
 
-    
-
-
-
-
 titleScreen()
 mainMenu() # When you click play, it goes to the setupGame()
 prompt()
 
-
-
-titleScreen() #keep this at bottom
+titleScreen()
 
 
 
