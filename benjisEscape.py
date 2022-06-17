@@ -5,6 +5,7 @@ import os
 import random
 
 ##### ENEMY ATTRIBUTES ######
+
 timothy = {
     "name": "Timothy",
     "health": 30
@@ -21,6 +22,7 @@ dad = {
 }
 
 ##### BENJI CLASS ###### 
+
 class Benji:
     def __init__(self):
         self.name = "Benji"
@@ -56,6 +58,7 @@ class Benji:
 benji = Benji()
 
 ###### TITLE SCREEN VISUALS ###### 
+
 def titleScreen():
     os.system('clear') # Moves screen up
     print("##############################")
@@ -105,6 +108,7 @@ def gameOver():
         playAgain = input("> ")
 
 ###### MENU LOGIC ###### 
+
 def mainMenu():
     option = input("> ")
     if option.lower() == ("play"):
@@ -120,6 +124,8 @@ def mainMenu():
         elif option.lower() == ("quit"):
             print("Quitting")
             sys.exit()
+
+###### YOU ESCAPED SCREEN ######
 
 def youEscaped():
     os.system('clear')
@@ -165,36 +171,20 @@ def setupEndDialogue():
     print("##############################")
     print("                              ")
     print("                              ")
-    script1 = "Dad lunges towards you, his body clumsily reaching out, weak from all of the red marks that you inflicted.\n"
-    script2 = "You manage to dodge out of the way and the Dad falls onto the floor like a skyscraper crashing down before your eyes.\n"
-    script3 = "You did it... You actually did it. You defeated all 3 family members!\n"
-    script4 = "You run out the front door, waddling with excitement knowing that you'll be eating all of the worms that you desire!\n"
-    
-    for char in script1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in script2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in script3:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in script4:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(4)
-    youEscaped()
 
+    scriptList = ["Dad lunges towards you, his body clumsily reaching out, weak from all of the red marks that you inflicted.", "You manage to dodge out of the way and the Dad falls onto the floor like a skyscraper crashing down before your eyes.", "You did it... You actually did it. You defeated all 3 family members!", "You run out the front door, waddling with excitement knowing that you'll be eating all of the worms that you desire!"]
+
+    for i in range(len(scriptList)):
+        print(" ")
+        for j in scriptList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.5)
+        print(" ")
+
+    time.sleep(3)
+    youEscaped()
 
 ###### PROMPT TO FIGHT DAD ###### 
 
@@ -267,26 +257,23 @@ def prompt3():
     gameOver()
 
 
-###### GAME DIALOG/CONTENT PART 3 ###### 
+###### GAME DIALOGUE PART 3 ###### 
+
 def setupPart3():
     print("##############################")
     print("                              ")
     print("                              ")
-    script1 = "Mom angrily throws a tantrum in frustration at how many red marks she has and stomps out the front door of the house.\n"
-    script2 = "You see that she forgets to close the front door and the house is wide open. Now is your chance! \n"
-    
 
-    for char in script1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in script2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
+    scriptsList = ["You defeated Mom!", "Mom angrily throws a tantrum in frustration at how many red marks she has and stomps out the front door of the house.", "You see that she forgets to close the front door and the house is wide open. Now is your chance! "]
+
+    for i in range(len(scriptsList)):
+        print(" ")
+        for j in scriptsList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
 
     opts = ["yes", "no"]
     print("                              ")
@@ -308,46 +295,20 @@ def setupPart3():
         print("Unknown action, try again")
         playAgain = input("> ")
 
-
-    letsMoveOn = "Good. I'm glad! Freedom here we come.\n"
-
-    script3 = "You waddle towards the front door as fast as your little reptilian legs can carry you.\n"
-    script4 = "You feel like you're finally home free... Until you see a massive figure step in front of the doorway!\n"
-    script5 = "The father, a massive and muscular giant, is blocking your ticket to freedom!\n"
-    script6 = "Let's do this. This is the moment that you've been waiting for.\n"
-
+    scriptList2 = ["Good. I'm glad! Freedom here we come.","You waddle towards the front door as fast as your little reptilian legs can carry you.", "You feel like you're finally home free... Until you see a massive figure step in front of the doorway!", "The father, a massive and muscular giant, is blocking your ticket to freedom!", "Let's do this. This is the moment that you've been waiting for."]
     timeToFight = "Time to fight...!\n"
     print("                              ")
-    for char in letsMoveOn:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
+
+    for i in range(len(scriptList2)):
+        print(" ")
+        for j in scriptList2[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1)
+        print(" ")
     print("                              ")
-    for char in script3:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in script4:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in script5:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in script6:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
+
     for char in timeToFight:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -423,62 +384,24 @@ def prompt2():
 
     gameOver()
 
-###### GAME DIALOGUE/CONTENT PART 2 ###### 
+###### GAME DIALOGUE PART 2 ###### 
 
 def setupPart2():
     print("##############################")
     print("                              ")
     print("                              ")
-    text1 = "You run past Timothy while he's busy crying and waddle down the hallway.\n"
-    text2 = "It sounds quiet...\n"
-    text3 = "... Too quiet.\n"
-    text4 = "You make your way to what looks like the dining room, then suddenly stop in your tracks.\n"
-    text5 = "Timothy's mother, a larger and more flabby version of a human, is standing there, staring at you.\n"
-    text6 = "You freeze. You aren't sure what to do.\n "
-    text7 = "She immediately stampedes towards you like a bull with a look of aggravation!\n"
+    
+    textList = ["You defeated Timothy!","You run past Timothy while he's busy crying and waddle down the hallway.", "It sounds quiet...", "... Too quiet.", "You make your way to what looks like the dining room, then suddenly stop in your tracks.", "Timothy's mother, a larger and more flabby version of a human, is standing there, staring at you.", "You freeze. You aren't sure what to do.", "She immediately stampedes towards you like a bull with a look of aggravation!"]
     text8 = "Time to fight...!\n"
 
-    for char in text1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text3:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text4:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text5:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text6:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
-    print("                              ")
-    for char in text7:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1)
+    for i in range(len(textList)):
+        print(" ")
+        for j in textList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
     print("                              ")
     for char in text8:
         sys.stdout.write(char)
@@ -551,42 +474,26 @@ def prompt():
                 
     gameOver()
 
-###### GAME DIALOG/CONTENT PART 1 ###### 
+###### GAME DIALOGUE PART 1 ###### 
 
 def setupGame():
     os.system('clear')
-    speech1 = "You are Benji, a young but determined bearded dragon that was just adopted by a loving family.\n"
-    speech2 = "You came home in a small kennel only to find out that the family’s 6 year old child named Timothy is your new owner.\n"
-    speech3 = "You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you!\n"
-    speech4 = "Use your wits to escape Timothy and his family’s home by defeating each of them in battle. It's the only way to survive!\n"
+    speechList = ["You are Benji, a young but determined bearded dragon that was just adopted by a loving family.", "You came home in a small kennel only to find out that the family’s 6 year old child named Timothy is your new owner.", "You have a strange feeling that Timothy doesn’t know how to take care of you and you fear that he may kill you!", "Use your wits to escape Timothy and his family’s home by defeating each of them in battle. It's the only way to survive!"]
     speech5 = "Watch out for Timothy...\n"
     speech6 = "... And his family. \n"
     print("                              ")
     time.sleep(1.5)
-    for char in speech1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
+
+    for i in range(len(speechList)):
+        print(" ")
+        for j in speechList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
     print("                              ")
-    for char in speech2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in speech3:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in speech4:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
+
     for char in speech5:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -599,53 +506,22 @@ def setupGame():
         time.sleep(0.1)
     time.sleep(1.5)
     print("                              ")
-
-    dialog1 = "You are in Timothy's room inside of a glass tank.\n"
-    dialog2 = "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs today. This kid is going to starve you to death!\n"
-    dialog3 = "You've finally decided. You are officially going to escape. For good. \n"
-    dialog4 = "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.\n"
-    dialog5 = "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!\n"
-    dialog6 = "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!\n"
     
+    dialogList = ["You are in Timothy's room inside of a glass tank.", "After a few hours of basking under your heat lamp and laying around, you know very well that Timothy didn't remember to feed you any bugs today. This kid is going to starve you to death!", "You've finally decided. You are officially going to escape. For good. ", "You run towards the glass and start glass surfing, repeatedly tapping your snout against it.", "Timothy gets aggravated and opens your tank doors out of frustration. This is your chance!", "You run through the doors and scramble your way to the bedroom entrance, when Timothy steps over you and blocks you from leaving his room!"]
+    print("                              ")
     dialog7 = "Time to fight...!\n"
     print("##############################")
     print("                              ")
-    for char in dialog1:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in dialog2:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in dialog3:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in dialog4:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in dialog5:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
-    for char in dialog6:
-        sys.stdout.write(char)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    time.sleep(1.5)
-    print("                              ")
+
+    for i in range(len(dialogList)):
+        print(" ")
+        for j in dialogList[i]:
+            sys.stdout.write(j)
+            sys.stdout.flush()
+            time.sleep(0.05)
+        time.sleep(1.2)
+        print(" ")
+
     for char in dialog7:
         sys.stdout.write(char)
         sys.stdout.flush()
