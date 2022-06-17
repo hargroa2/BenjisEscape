@@ -514,6 +514,7 @@ def setupGame():
             time.sleep(0.05)
         time.sleep(1.2)
         print(" ")
+        print("                              ")
 
     for char in dialog7:
         sys.stdout.write(char)
