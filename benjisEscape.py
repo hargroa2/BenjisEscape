@@ -181,7 +181,7 @@ def setupEndDialogue():
         time.sleep(1.5)
         print(" ")
 
-    time.sleep(3)
+    time.sleep(2)
     youEscaped()
 
 ###### PROMPT TO FIGHT DAD ###### 
@@ -352,7 +352,7 @@ def prompt2():
             mom["health"] = decHealth3
             randNumber2 = random.randint(1, 10)
 
-            print(f"It's Mom's turn. He grabs you and hurts you by {randNumber2} health!")
+            print(f"It's Mom's turn. She grabs you and hurts you by {randNumber2} health!")
             hurtBenji = benji.health - randNumber2
             benji.health = hurtBenji
 
