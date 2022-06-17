@@ -12,11 +12,9 @@ Welcome to my first terminal-based RPG project made in python!
 
 ### Running The Game
 
-- To run Benji's Escape, make sure that you clone this repository. Then, enter the following text into your terminal and press enter:
+- To run Benji's Escape, make sure that you clone this repository.
 
-`git clone https://github.com/hargroa2/PythonRPG_BenjisEscape.git`
-
-- After that, simply make sure that you move into the directory that contains the benjisEscape.py file using the command `cd`.
+- After that, simply make sure that you move into the directory that contains the benjisEscape.py file using the command `cd` in your terminal.
 
 - Once you do that, simply paste this text into the terminal and press enter:
   `python3 benjisEscape.py`
