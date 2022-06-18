@@ -86,27 +86,6 @@ def titleScreen():
     print('          .: Quit :.          ')
     print('        ©2022 Amanda H.       ')
 
-
-###### GAME OVER ###### 
-
-def gameOver():
-    print("##############################")
-    print("#         GAME OVER          #")
-    print("##############################")
-    print("\n")
-    print("You were captured... ")
-    print("\n")
-    opts = ["yes", "no"]
-    playAgain = input("Would you like to play again? yes or no: > ")
-    if playAgain.lower() == "yes":
-        titleScreen()
-    elif playAgain.lower() == "no":
-        print("Thanks for playing!")
-        sys.exit()
-    while playAgain.lower() not in opts:
-        print("Unknown action, try again")
-        playAgain = input("> ")
-
 ###### MENU LOGIC ###### 
 
 def mainMenu():
@@ -124,6 +103,28 @@ def mainMenu():
         elif option.lower() == ("quit"):
             print("Quitting")
             sys.exit()
+
+###### GAME OVER ###### 
+
+def gameOver():
+    print("##############################")
+    print("#         GAME OVER          #")
+    print("##############################")
+    print("\n")
+    print("You were captured... ")
+    print("\n")
+    opts = ["yes", "no"]
+    playAgain = input("Would you like to play again? yes or no: > ")
+    if playAgain.lower() == "yes":
+        titleScreen()
+        mainMenu()
+    elif playAgain.lower() == "no":
+        print("Thanks for playing!")
+        sys.exit()
+    while playAgain.lower() not in opts:
+        print("Unknown action, try again")
+        playAgain = input("> ")
+
 
 ###### YOU ESCAPED SCREEN ######
 
