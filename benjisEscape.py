@@ -8,17 +8,17 @@ import random
 
 timothy = {
     "name": "Timothy",
-    "health": 30
+    "health": 20
 }
 
 mom = {
     "name":  "Mom",
-    "health": 35
+    "health": 25
 }
 
 dad = {
     "name": "Dad",
-    "health": 40
+    "health": 30
 }
 
 ##### BENJI CLASS ###### 
